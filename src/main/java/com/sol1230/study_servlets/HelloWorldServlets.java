@@ -28,7 +28,6 @@ public class HelloWorldServlets extends HttpServlet {
     printWriter.println("</body>");
     printWriter.println("</html>");
 
-    printWriter.println("<div><div>");
     printWriter.close();
   }
 }
