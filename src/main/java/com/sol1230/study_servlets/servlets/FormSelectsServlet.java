@@ -1,4 +1,4 @@
-package com.sol1230.study_servlets;
+package com.sol1230.study_servlets.servlets;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

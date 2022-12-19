@@ -1,4 +1,4 @@
-package com.sol1230.study_servlets;
+package com.sol1230.study_servlets.servlets;
 
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -15,6 +15,10 @@ public class HelloWorldServlets extends HttpServlet {
     HttpServletResponse response
   )
     throws IOException {
+    String firstName = request.getParameter("firstName");
+    String lastName = request.getParameter("lastName");
+    String hiddenParam = request.getParameter("hiddenParam");
+
     String message = "HelloWorldServlets! with message";
     PrintWriter printWriter = response.getWriter();
 
@@ -24,7 +28,17 @@ public class HelloWorldServlets extends HttpServlet {
     printWriter.println("</head>");
 
     printWriter.println("<body>");
-    printWriter.println("<div>" + message + "</div>");
+    printWriter.println("<div> firstName : " + firstName + "</div>");
+    printWriter.println("<div> lastName : " + lastName + "</div>");
+    printWriter.println("<form action='/helloWorldServlets' method='get'>");
+    printWriter.println(
+      "  <input type='text' name='firstName' id='' value='" + firstName + "' />"
+    );
+    printWriter.println(
+      " <input type='text' name='lastName' id='' value='" + lastName + "' />"
+    );
+    printWriter.println(" <button>recall HelloWorldServlets</button>");
+    printWriter.println(" </form>");
     printWriter.println("</body>");
     printWriter.println("</html>");
 

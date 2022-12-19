@@ -8,5 +8,40 @@
   </head>
   <body>
     <div>index.html</div>
+    <div>
+      <a href="/helloWorldServlets?firstName=Eunsol&lastName=Lee"
+        >HelloWorldServlets?firstName=Eunsol&lastName=Lee</a
+      >
+    </div>
+    <div>
+      <a href="/searchFormServlet">searchFormServlet</a>
+    </div>
+    <div>
+      <a href="/tableListServlet">tableListServlet</a>
+    </div>
+    <div>
+      <a href="/tableBundleServlet">tableBundleServlet</a>
+    </div>
+    <div>
+      <a href="/tablesBeanListServlets">tablesBeanListServlets</a>
+    </div>
+    <div>
+      <a href="/SimpleWithDBServlets">SimpleWithDBServlets</a>
+    </div>
+    <div>From element</div>
+    <div>
+      <form action="/helloWorldServlets" method="get">
+        <input type="text" name="firstName" id="" value="Eunsol" />
+        <input type="text" name="lastName" id="" value="Lee" />
+        <input type="hidden" name="hiddenParam" value="sol" />
+        <button>HelloWorldServlets</button>
+      </form>
+      <form action="/searchFormServlet" method="get">
+        <button>searchFormServlet</button>
+      </form>
+      <form action="/tableListServlet" method="get">
+        <button>tableListServlet</button>
+      </form>
+    </div>
   </body>
 </html>
