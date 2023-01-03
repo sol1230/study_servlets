@@ -40,14 +40,31 @@
       <a href="/session/createServlets">session - create Servlets</a>
     </div>
     <div>
-      <a href="/dispatcherJSPServlets">Dispatcher Servlets</a>
+      <a href="/DispatcherServlets">Dispatcher - Servlets</a>
     </div>
     <div>
-      <a href="/DispatcherJSPServlets">Dispatcher JSP Servlets</a>
+      <a href="/DispatcherJSPServlets">Dispatcher JSP - Servlets</a>
+    </div>
+    <div>
+      <a href="/dispatcherJSP/TableListServlet">
+        Dispatcher JSP - Table List Servlet</a
+      >
     </div>
     <div>
       <a href="/session/createJSPServlets">Session - create JSP Servlet </a>
     </div>
+    <div>
+      <a href="/session/createServlets?username=eunsol&password=1234"
+        >/session/createServlets?username=eunsol&password=1234
+        CreateSessionServlet.java</a
+      >
+      <form action="/session/createServlets" method="post">
+        <input type="text" name="username" id="" value="Eunsol" />
+        <input type="text" name="password" id="" value="1234" />
+        <button>/session/createServlets with post</button>
+      </form>
+    </div>
+    <br />
     <div>From element</div>
     <div>
       <form action="/helloWorldServlets" method="get">
@@ -62,12 +79,10 @@
       <form action="/tableListServlet" method="get">
         <button>tableListServlet</button>
       </form>
-
+      <br />
       <div>Cases</div>
       <div>
-        <a href="/polls/PollServlet?QUESTIONS_UID=Q1"
-          >DetailServlets.java /polls/details.jsp</a
-        >
+        <a href="/polls/PollServlet">DetailServlets.java /polls/details.jsp</a>
       </div>
     </div>
   </body>

@@ -11,8 +11,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-@WebServlet(urlPatterns = "/dispatcherJSP/TableListServlet")
-public class DispatcherJSPTableListServlet extends HttpServlet {
+@WebServlet(urlPatterns = "/dispatcherJSP/TablesListServlets")
+public class DispatcherJSPTablesListServlets extends HttpServlet {
 
   @Override
   protected void doGet(
@@ -21,12 +21,10 @@ public class DispatcherJSPTableListServlet extends HttpServlet {
   )
     throws ServletException, IOException {
     response.setContentType("text/html;charset=UTF-8");
-    DatasInfor datasInfo = new DatasInfor();
-
-    ArrayList<String> tablesListwithString = datasInfo.getTablesListWithString();
-    HashMap<String, String> searchForm = datasInfo.getSearchFormData();
-
-    request.setAttribute("tablesListwithString", tablesListwithString);
+    DatasInfor datasInfor = new DatasInfor();
+    ArrayList<String> tablesListWithString = datasInfor.getTablesListWithString();
+    HashMap<String, String> searchForm = datasInfor.getSearchFormData();
+    request.setAttribute("tablesListWithString", tablesListWithString);
     request.setAttribute("searchForm", searchForm);
 
     RequestDispatcher requestDispatcher = request.getRequestDispatcher(

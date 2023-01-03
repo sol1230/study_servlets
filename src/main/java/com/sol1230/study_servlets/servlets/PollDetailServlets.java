@@ -9,9 +9,10 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
-@WebServlet(urlPatterns = "/polls/PollServlet_us")
+@WebServlet(urlPatterns = "/polls/PollServlet") // web.xml
 public class PollDetailServlets extends HttpServlet {
 
   @Override
@@ -24,20 +25,26 @@ public class PollDetailServlets extends HttpServlet {
     String questions_Uid = request.getParameter("QUESTIONS_UID");
 
     // biz with DB and Class
-    PollWithDB PollWithDB = new PollWithDB();
+    PollWithDB pollWithDB = new PollWithDB();
     HashMap<String, Object> question = null;
+    ArrayList<HashMap> answer_list = null;
     try {
-      question = PollWithDB.getQuestion(questions_Uid);
+      question = pollWithDB.getQuestion(questions_Uid);
       System.out.println(question.get("QUESTIONS_UID"));
       System.out.println(question.get("QUESTIONS"));
       System.out.println(question.get("ORDERS"));
-
-      PollWithDB.getAnswer(questions_Uid);
+      answer_list = pollWithDB.getAnswerList(questions_Uid);
     } catch (SQLException e) {
       e.printStackTrace();
     }
+    for (int i = 0; i < answer_list.size(); i++) {
+      HashMap<String, Object> answer = answer_list.get(i);
+      System.out.println(answer.get("ORDERS"));
+      System.out.println(answer.get("EXAMPLE"));
+    }
     // output with html
     request.setAttribute("question", question);
+    request.setAttribute("answer_list", answer_list);
 
     RequestDispatcher requestDispatcher = request.getRequestDispatcher(
       "/polls/details.jsp"
