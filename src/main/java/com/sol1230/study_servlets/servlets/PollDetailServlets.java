@@ -1,5 +1,6 @@
 package com.sol1230.study_servlets.servlets;
 
+import com.sol1230.study_servlets.dao.PollWithDB;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -10,10 +11,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-import com.sol1230.study_servlets.dao.PollWithDB;
-
 @WebServlet(urlPatterns = "/polls/PollServlet_us")
-public class DetailServlets extends HttpServlet {
+public class PollDetailServlets extends HttpServlet {
 
   @Override
   protected void doGet(
@@ -32,6 +31,8 @@ public class DetailServlets extends HttpServlet {
       System.out.println(question.get("QUESTIONS_UID"));
       System.out.println(question.get("QUESTIONS"));
       System.out.println(question.get("ORDERS"));
+
+      PollWithDB.getAnswer(questions_Uid);
     } catch (SQLException e) {
       e.printStackTrace();
     }
@@ -44,4 +45,3 @@ public class DetailServlets extends HttpServlet {
     requestDispatcher.forward(request, response);
   }
 }
-
