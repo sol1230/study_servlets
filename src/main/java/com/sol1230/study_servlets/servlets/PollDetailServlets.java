@@ -12,7 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-@WebServlet(urlPatterns = "/polls/PollServlet") // web.xml
+@WebServlet(urlPatterns = "polls/PollServlet?QUESTIONS_UID=Q1") // web.xml
 public class PollDetailServlets extends HttpServlet {
 
   @Override
